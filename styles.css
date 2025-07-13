@@ -1,0 +1,148 @@
+/* Futuristic Theme */
+:root {
+    --neon-blue: #00f3ff;
+    --neon-purple: #9d00ff;
+    --dark-bg: #0a0a1f;
+    --grid-color: rgba(0, 243, 255, 0.1);
+}
+
+body {
+    background-color: var(--dark-bg);
+    margin: 0;
+    padding: 20px;
+    font-family: 'Orbitron', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--neon-blue);
+}
+
+.future-container {
+    max-width: 1000px;
+    width: 100%;
+    background: linear-gradient(45deg, rgba(0,0,0,0.9), rgba(10,10,31,0.9));
+    border: 1px solid var(--neon-blue);
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 20px var(--neon-blue);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Holographic Header */
+.holo-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.holo-line {
+    height: 2px;
+    flex: 1;
+    background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
+    animation: pulseLine 2s infinite;
+}
+
+.future-title {
+    font-size: 24px;
+    text-align: center;
+    margin: 0 20px;
+    text-shadow: 0 0 10px var(--neon-blue);
+    letter-spacing: 3px;
+}
+
+/* Display Area */
+.display-area {
+    position: relative;
+    margin: 20px 0;
+    border: 2px solid var(--neon-purple);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.scanner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        var(--grid-color) 0px,
+        var(--grid-color) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+}
+
+.scanner-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--neon-blue);
+    box-shadow: 0 0 10px var(--neon-blue);
+    animation: scan 2s linear infinite;
+}
+
+/* Control Interface */
+.control-interface {
+    margin-top: 20px;
+}
+
+.energy-meter {
+    height: 10px;
+    background: rgba(0, 243, 255, 0.1);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.energy-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--neon-blue);
+    box-shadow: 0 0 10px var(--neon-blue);
+    animation: energyPulse 3s infinite;
+}
+
+.control-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.grid-cell {
+    aspect-ratio: 1;
+    border: 1px solid var(--neon-purple);
+    border-radius: 3px;
+    background: rgba(157, 0, 255, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.grid-cell:hover {
+    background: rgba(157, 0, 255, 0.3);
+    box-shadow: 0 0 15px var(--neon-purple);
+}
+
+/* Animations */
+@keyframes pulseLine {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+@keyframes scan {
+    0% { top: 0; }
+    100% { top: 100%; }
+}
+
+@keyframes energyPulse {
+    0% { width: 30%; }
+    50% { width: 70%; }
+    100% { width: 30%; }
+} 
